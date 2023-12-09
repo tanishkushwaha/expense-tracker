@@ -29,19 +29,19 @@ export const BudgetsProvider = ({ children }) => {
     
   };
 
-  const addBudget = (name, max) => {
+  const addBudget = ({ name, max }) => {
     setBudgets(previousBudgets => {
       if(previousBudgets.find(budget => budget.name === name)) {
         return previousBudgets;
       }
 
-      return [...previousBudgets, {id: uuidv4, name, max}]
+      return [...previousBudgets, {id: uuidv4(), name, max}]
     });
   };
 
   const addExpense = (budgetId, amount, description) => {
     setExpenses(previousExpenses => {
-      return [...previousExpenses, {id: uuidv4, budgetId, amount, description}];
+      return [...previousExpenses, {id: uuidv4(), budgetId, amount, description}];
     });
   };
 
