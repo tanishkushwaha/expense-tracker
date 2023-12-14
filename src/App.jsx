@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Container, Stack, Button } from "react-bootstrap";
 import BudgetCard from "./components/BudgetCard";
 import UncategorizedBudgetCard from "./components/UncategorizedBudgetCard";
+import TotalBudgetCard from "./components/TotalBudgetCard";
 import AddBudgetModal from "./components/AddBudgetModal";
 import AddExpenseModal from "./components/AddExpenseModal";
 import { useBudgets } from "./contexts/BudgetsContext";
@@ -57,6 +58,7 @@ const App = () => {
             );
           })}
           <UncategorizedBudgetCard />
+          <TotalBudgetCard />
         </div>
       </Container>
 
