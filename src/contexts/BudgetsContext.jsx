@@ -38,7 +38,13 @@ export const BudgetsProvider = ({ children }) => {
   };
 
   const deleteBudget = ({ id }) => {
-    // TODO: Deal with uncategorized expenses
+    setExpenses((previousExpenses) => {
+      return previousExpenses.map((expense) => {
+        if (expense.budgetId !== id) return expense;
+        return { ...expense, budgetId: UNCATEGORIZED_BUDGET_ID };
+      });
+    });
+
     setBudgets((previousBudgets) => {
       return previousBudgets.filter((budget) => budget.id !== id);
     });
@@ -46,7 +52,7 @@ export const BudgetsProvider = ({ children }) => {
 
   const deleteExpense = ({ id }) => {
     setExpenses((previousExpenses) => {
-      return previousExpenses.filter((expense) => expenses.id !== id);
+      return previousExpenses.filter((expense) => expense.id !== id);
     });
   };
 
